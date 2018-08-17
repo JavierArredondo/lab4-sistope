@@ -3,7 +3,7 @@
 Buffer::Buffer(){
 }
 
-Image Buffer::b_pop() 
+/*Image Buffer::b_pop() 
 {
 	Image img = images.front(); 
 	images.pop(); 
@@ -14,3 +14,4 @@ void Buffer::b_push(Image image)
 {
 	images.push(image);
 }
+*/

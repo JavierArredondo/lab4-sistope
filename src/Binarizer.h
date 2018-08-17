@@ -18,12 +18,14 @@ using namespace std;
 
 class Binarizer
 {
+
+	Buffer prevBuffer;
+	Buffer nextBuffer;	
+	
 	public:
 		Binarizer(Buffer pb , Buffer nb);
 		void convertToBin(int umbral);
 
-		Buffer prevBuffer;
-		Buffer nextBuffer;	
 };
 
 #endif

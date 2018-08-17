@@ -1,14 +1,11 @@
 #include "Image.h"
 
-Image::Image(){	
-}
-
 Image::Image(int number)
 {
 	char* image = (char*)calloc(60, sizeof(char));
 	char* route = (char*)calloc(60, sizeof(char));
 	sprintf(image, "%d", number);
-	strcat(route, "./images/image_");
+	strcat(route, "../images/image_");
 	strcat(route, image);
     strcat(route, ".bmp");
 	FILE* myFile = fopen(route, "rb");
