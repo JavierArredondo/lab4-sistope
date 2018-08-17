@@ -4,7 +4,7 @@
 #include <uQueue.h>
 # include <uC++.h>
 
-#include "Image.h"
+#include "../Image.cpp"
 
 
 _Monitor Buffer {	

@@ -13,7 +13,7 @@ class Reader
 	public:
 		Reader();
 		Reader(Buffer aux);
-		void readImage(int img);
+		void read(int img);
 
 	private:
 		Buffer buffer;

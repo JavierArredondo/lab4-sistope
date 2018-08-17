@@ -7,7 +7,7 @@
 # include "Binarizer.h"
 # include "Buffer.h"
 # include "Gray.h"
-# include "Image.h"
+
 # include "Reader.h"
 
 using namespace std;
@@ -17,7 +17,6 @@ int main (int argc, char **argv)
 {
 	printf("Inicio\n");
 	// Buffers
-	//Buffer ReadToGray(), GrayToBin(), BinToAnal(), AnalToWriter();
 	
 	Buffer buffer(),GrayToBin(),BinToAnal(),AnalToWriter();
 
@@ -29,11 +28,9 @@ int main (int argc, char **argv)
 	
 	Binarizer binz(Buffer(&GrayToBin), Buffer(&BinToAnal));
 	
-	Image* image();
+	Image image = Image(1);
 	
-	//reader.read(1);
 	
-	//gray.convertToGray();
 	
 
 	// getopt

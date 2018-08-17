@@ -9,7 +9,6 @@
 
 class Image
 {
-	private:
 			// Atributos
 		char bm[2];      			// Bitmap
 		int size;        			// Tamaño
