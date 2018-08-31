@@ -1,43 +1,11 @@
-# include <iostream>
-# include <fstream>
-# include <string.h>
-# include <stdio.h>
-# include <stdlib.h>
-
-class Image
-{
-	private:
-
-		// Atributos
-		char bm[2];      			// Bitmap
-        int size;			// Tamaño
-		int reserved;    			// Reservado
-		int offset;      			// 
-		int metadata;    			// Tamaño de los metadados.
-		int width;       			// Ancho
-		int height;      			// Alto
-		int planes;      			// Planos de color
-		int bpp;         			// Bits por pixel
-		int compress;    			// Compresión
-		int imgsize;     			// Tamaño de los datos de la imagen
-		int bpmx;        			// Resolución X en bits por metro 
-		int bpmy;        			// Resolución Y en bits por metro
-		int colors;      			// Colores usados en la paleta 
-		int imxtcolors;  			// Colores importantes. 0 si son todos
-		unsigned char ***matrix;	// 
-	public:
-		// Constructor
-		Image(int number);
-		// Metodos
-		// Destructor
-};
+# include "Image.h"
 
 Image::Image(int number)
 {
 	char* image = (char*)calloc(60, sizeof(char));
 	char* route = (char*)calloc(60, sizeof(char));
 	sprintf(image, "%d", number);
-	strcat(route, "./images/image_");
+	strcat(route, "../images/image_");
 	strcat(route, image);
     strcat(route, ".bmp");
 	FILE* myFile = fopen(route, "rb");
@@ -94,4 +62,9 @@ Image::Image(int number)
 		}
 	}
 	fclose(myFile);
+}
+
+void Image::getSize()
+{
+	printf("Ancho: %i\nLargo: %i\n", width, height);
 }

@@ -1,34 +1,27 @@
-#include <cstdlib>
-#include <iostream>
-#include <uQueue.h>
-#include <cstring>
-#include <sstream>
-
-# include "Binarizer.h"
+# include "Image.h"
 # include "Buffer.h"
-# include "Gray.h"
-
 # include "Reader.h"
-
 using namespace std;
 
-
-int main (int argc, char **argv)
+void uMain::main()
 {
 	printf("Inicio\n");
 	// Buffers
-	
-	Buffer buffer(),GrayToBin(),BinToAnal(),AnalToWriter();
+	//Buffer ReadToBin(), GrayToBin(), BinToAnal(), AnalToWriter();
+	Buffer buffer(5);
+	Reader reader(&buffer);
 
 	// Creamos las etapas
 	
-	Reader reader(Buffer(&buffer));
+	//Reader reader(Buffer(&ReadToBin));
 	
-	Gray gray(Buffer(&buffer), Buffer(&GrayToBin));
+	//Gray gray(Buffer(&buffer), Buffer(&GrayToBin));
 	
-	Binarizer binz(Buffer(&GrayToBin), Buffer(&BinToAnal));
+	//Binarizer binz(Buffer(&GrayToBin), Buffer(&BinToAnal));
 	
-	Image image = Image(1);
+
+	//Image image(1);
+	//image.getSize();
 	
 	
 	
@@ -49,7 +42,4 @@ int main (int argc, char **argv)
 	// ......escribe
 	
 	printf("Fin\n");
-
-
-	return 1;
 }

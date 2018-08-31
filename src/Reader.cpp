@@ -1,12 +1,5 @@
-#include "Reader.h"
+# include "../include/Reader.h"
 
-Reader::Reader(Buffer aux)
+Reader::Reader(Buffer &buffer):buffer(buffer)
 {
-	buffer = aux;
-}
-
-void Reader::read(int img)
-{
-	Image image(img);
-	buffer.b_push(image);
-}
+};

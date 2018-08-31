@@ -3,7 +3,7 @@
 
 # include <iostream>
 # include <fstream>
-# include <string>
+# include <string.h>
 # include <stdio.h>
 # include <stdlib.h>
 
@@ -28,7 +28,9 @@ class Image
 		unsigned char ***matrix;	// 
 
 	public:
-		Image(int number);	
+		Image(int number);
+		void getSize();
+		~Image(){};
 };
 
 #endif
