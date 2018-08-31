@@ -1,16 +1,14 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
-# include <uC++.h>
 # include <queue>
 # include "../include/Image.h"
 using namespace std;
 
 _Monitor Buffer{	
 	private:
+		uCondition full, empty;
 		int size;
-		int empty;
-		int full;
 		queue<Image> images;
 	
 	public:

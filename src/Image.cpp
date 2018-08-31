@@ -5,7 +5,7 @@ Image::Image(int number)
 	char* image = (char*)calloc(60, sizeof(char));
 	char* route = (char*)calloc(60, sizeof(char));
 	sprintf(image, "%d", number);
-	strcat(route, "../images/image_");
+	strcat(route, "./images/image_");
 	strcat(route, image);
     strcat(route, ".bmp");
 	FILE* myFile = fopen(route, "rb");
@@ -58,9 +58,14 @@ Image::Image(int number)
 			}
 			// B G R A
 			// 0 1 2 3
-			fread(matrix[i][j], sizeof(unsigned char), 4, myFile);
+			if(this->bpp == 32)
+				fread(matrix[i][j], sizeof(unsigned char), 4, myFile);
+			else
+				fread(matrix[i][j], sizeof(unsigned char), 3, myFile);
 		}
 	}
+	this->isNearlyBlack = -1;
+	this->no = number;
 	fclose(myFile);
 }
 

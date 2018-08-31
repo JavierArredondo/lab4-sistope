@@ -1,44 +1,39 @@
+# include <uC++.h>
 # include "Image.h"
 # include "Buffer.h"
 # include "Reader.h"
+# include "Gray.h"
+# include "Binarize.h"
+# include "Classifier.h"
+# include "Writer.h"
+
 using namespace std;
 
 void uMain::main()
 {
+	Image img(1);
+	int qtyBuffer = 3; // Cantidad de B
 	printf("Inicio\n");
-	// Buffers
-	//Buffer ReadToBin(), GrayToBin(), BinToAnal(), AnalToWriter();
-	Buffer buffer(1);
-	Reader reader(buffer);
+	// Buffers: Buffers en comun entre cada etapa 
+	Buffer buffer1(qtyBuffer);
+	Buffer buffer2(qtyBuffer);
+	Buffer buffer3(qtyBuffer);
+	Buffer buffer4(qtyBuffer);
+
 	// Creamos las etapas
-	
-	//Reader reader(Buffer(&ReadToBin));
-	
-	//Gray gray(Buffer(&buffer), Buffer(&GrayToBin));
-	
-	//Binarizer binz(Buffer(&GrayToBin), Buffer(&BinToAnal));
-	
+	Reader reader(buffer1, 20);
+	Gray gray(buffer1, buffer2);
+	Binarize binarize(buffer2, buffer3, 50);
+	Classifier classifier(buffer3, buffer4, 50);
+	Writer writer(buffer4);
 
-	//Image image(1);
-	//image.getSize();
-	
-	
-	
+	delete &writer;
+	delete &classifier;
+	delete &binarize;
+	delete &gray;
+	delete &reader;
 
-	// getopt
-	// ....Lee imagen
-	// buffer-> encola
-	// buffer-> desencola
-	// .....Convierte imagen a gris
-	// buffer-> encola
-	// buffer-> desencola
-	// .....Binariza imagen
-	// buffer-> encola
-	// buffer-> desencola
-	// .....categoriza
-	// buffer-> encola
-	// buffer-> desencola
-	// ......escribe
-	
-	printf("Fin\n");
+
+
+	// Se ejecutan las etapas.
 }

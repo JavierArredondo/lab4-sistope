@@ -9,7 +9,11 @@
 
 class Image
 {
-			// Atributos
+	public:
+		Image(int number);
+		void getSize();
+		~Image(){};
+		// Atributos
 		char bm[2];      			// Bitmap
 		int size;        			// Tamaño
 		int reserved;    			// Reservado
@@ -25,12 +29,9 @@ class Image
 		int bpmy;        			// Resolución Y en bits por metro
 		int colors;      			// Colores usados en la paleta 
 		int imxtcolors;  			// Colores importantes. 0 si son todos
-		unsigned char ***matrix;	// 
-
-	public:
-		Image(int number);
-		void getSize();
-		~Image(){};
+		unsigned char ***matrix;	//
+		int isNearlyBlack;
+		int no;                     // Numero de la imagen
 };
 
 #endif

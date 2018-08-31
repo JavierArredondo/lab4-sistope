@@ -2,9 +2,9 @@ INC_DIRS = -Iinclude
 
 CFLAGS = -c
 
-main: obj/main.o obj/Buffer.o obj/Image.o obj/Reader.o
-	@ u++ obj/*.o -o bin/dna.run
-	@ echo "The compilation has been completed successfully"
+main: obj/main.o obj/Buffer.o obj/Image.o obj/Reader.o obj/Gray.o obj/Binarize.o obj/Classifier.o obj/Writer.o
+	@ u++ obj/*.o -o bin/classifier.out
+	@ echo "The compilation has been completed successfully!"
 
 obj/main.o: src/main.cpp
 	@ echo "src/main.cpp"
@@ -18,6 +18,18 @@ obj/Image.o: src/Image.cpp
 obj/Reader.o: src/Reader.cpp
 	@ echo "src/Reader.cpp"
 	@ u++  $(CFLAGS) $(INC_DIRS) src/Reader.cpp -o obj/Reader.o
+obj/Gray.o: src/Gray.cpp
+	@ echo "src/Gray.cpp"
+	@ u++  $(CFLAGS) $(INC_DIRS) src/Gray.cpp -o obj/Gray.o
+obj/Binarize.o: src/Binarize.cpp
+	@ echo "src/Binarize.cpp"
+	@ u++  $(CFLAGS) $(INC_DIRS) src/Binarize.cpp -o obj/Binarize.o
+obj/Classifier.o: src/Classifier.cpp
+	@ echo "src/Classifier.cpp"
+	@ u++  $(CFLAGS) $(INC_DIRS) src/Classifier.cpp -o obj/Classifier.o
+obj/Writer.o: src/Writer.cpp
+	@ echo "src/Writer.cpp"
+	@ u++  $(CFLAGS) $(INC_DIRS) src/Writer.cpp -o obj/Writer.o
 
 clean:
 	@ clear

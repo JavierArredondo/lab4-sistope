@@ -7,15 +7,18 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "../include/Buffer.h"
-# include <uC++.h>
 
-class Reader
+_Task Reader
 {
 	private:
 		Buffer &buffer;
+		int qty;
+	protected:
+		void main();
 	public:
 		Reader();
-		Reader(Buffer &buffer);
+		Reader(Buffer &buffer, int qty);
+		void readImage(int img);
 		~Reader(){};
 };
 
