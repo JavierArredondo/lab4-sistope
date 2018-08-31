@@ -8,9 +8,8 @@ void uMain::main()
 	printf("Inicio\n");
 	// Buffers
 	//Buffer ReadToBin(), GrayToBin(), BinToAnal(), AnalToWriter();
-	Buffer buffer(5);
-	Reader reader(&buffer);
-
+	Buffer buffer(1);
+	Reader reader(buffer);
 	// Creamos las etapas
 	
 	//Reader reader(Buffer(&ReadToBin));

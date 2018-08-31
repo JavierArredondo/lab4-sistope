@@ -9,11 +9,12 @@
 # include "../include/Buffer.h"
 # include <uC++.h>
 
-_Task Reader
+class Reader
 {
 	private:
 		Buffer &buffer;
 	public:
+		Reader();
 		Reader(Buffer &buffer);
 		~Reader(){};
 };
