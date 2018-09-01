@@ -4,8 +4,9 @@
 # define GREEN 1
 # define BLUE 0
 
-Writer::Writer(Buffer &buffer):buffer(buffer){
+Writer::Writer(Buffer &buffer, int max):buffer(buffer){
 	printf("5) Escritor creado\n");
+	this->max = max;
 };
 
 void Writer::main(){
@@ -65,4 +66,6 @@ void Writer::write()
 		}
 	fclose(myFile);
 	free(route);
+	if(img.no == this->max)
+		exit(0);
 };
