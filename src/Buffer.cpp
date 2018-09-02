@@ -27,7 +27,7 @@ void Buffer::b_push(Image image)
 {
 	if(this->images.size() == this->size)
 	{
-		printf("Esta lleno\n");
+		//printf("Esta lleno\n");
 		this->empty.wait();
 	}
 	images.push(image);

@@ -4,9 +4,10 @@
 # define GREEN 1
 # define BLUE 0
 
-Writer::Writer(Buffer &buffer, int max):buffer(buffer){
+Writer::Writer(Buffer &buffer, int max, int flag):buffer(buffer){
 	printf("5) Escritor creado\n");
 	this->max = max;
+	this->flag = flag;
 };
 
 void Writer::main(){
@@ -20,14 +21,17 @@ void Writer::write()
 	Image img = this->buffer.b_pop();
 	char str[100];
 	sprintf(str, "%d", img.no);
-	if(img.isNearlyBlack == 1)
-		printf("|  imagen_%s   |         yes       |\n", str);
-	else 
-		printf("|  imagen_%s   |         no        |\n", str);
+	if (this->flag == 1)
+	{
+		if(img.isNearlyBlack == 1)
+			printf("|  imagen_%s   |         yes       |\n", str);
+		else 
+			printf("|  imagen_%s   |         no        |\n", str);
+	}
 	// Escritura de la imagen
 	char* route;
 	route = (char*)malloc(sizeof(char)*50);
-	strcpy(route,"./imagesbin/imagenbin_");
+	strcpy(route,"../imagesbin/imagenbin_");
 	strcat(route, str);
     strcat(route, ".bmp");
 	FILE* myFile =fopen(route, "wb");

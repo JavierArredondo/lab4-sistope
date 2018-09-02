@@ -13,11 +13,12 @@ _Task Writer
 	private:
 		Buffer &buffer;
 		int max;
+		int flag;
 	protected:
 		void main();
 	public:
 		Writer();
-		Writer(Buffer &buffer, int max);
+		Writer(Buffer &buffer, int max, int flag);
 		void write();
 		~Writer(){};
 };
